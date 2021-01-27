@@ -9,6 +9,7 @@ services:
     - MYSQL_DATABASE=redmine_production
     - MYSQL_USER=redmine
     - MYSQL_PASSWORD=password
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
     - ./redmine_data/mysql:/var/lib/mysql
 
@@ -60,7 +61,8 @@ services:
     # - IMAP_INTERVAL=30
 
     ports:
-    - "10083:80"
+    - "80:80"
     volumes:
     - ./redmine_data:/home/redmine/data
     - ./redmine_data/logs:/var/log/redmine
+    - ./redmine_data/vanillaBrain-project:/home/redmine/vanillaBrain-project
