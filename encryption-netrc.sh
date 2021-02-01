@@ -11,9 +11,9 @@
 # GPG Public Key 생성 / 유효기간 30일
 gpg --batch --gen-key <<EOF
 Key-Type: 1
-Key-Length: 2048
+Key-Length: 3072
 Subkey-Type: 1
-Subkey-Length: 2048
+Subkey-Length: 3072
 Name-Real: sinsuung
 Name-Email: sinsuung@vanillabrain.com
 Expire-Date: 30
@@ -26,7 +26,8 @@ gpg -e -r sinsuung@vanillabrain.com  .netrc \
     && cp -a git-credential-netrc /usr/local/bin/ \
     && chmod 755 /usr/local/bin/git-credential-netrc
 
+#rm -f .netrc
+
 # gpg git credential 등록
-git config --global credential.helper  \
-    && git config credential.helper "netrc -d -v"
+git config --global credential.helper "netrc -v"
 
