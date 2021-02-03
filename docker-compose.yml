@@ -38,9 +38,9 @@ services:
 
     # - REDMINE_CONCURRENT_UPLOADS=2
 
-    # - REDMINE_BACKUP_SCHEDULE=
-    # - REDMINE_BACKUP_EXPIRY=
-    # - REDMINE_BACKUP_TIME=
+     - REDMINE_BACKUP_SCHEDULE=daily
+    #- REDMINE_BACKUP_EXPIRY=
+     - REDMINE_BACKUP_TIME=04:00
 
     # - SMTP_ENABLED=false
     # - SMTP_METHOD=smtp
@@ -62,6 +62,7 @@ services:
 
     ports:
     - "80:80"
+
     volumes:
     - ./redmine_data:/home/redmine/data
     - ./redmine_data/logs:/var/log/redmine
