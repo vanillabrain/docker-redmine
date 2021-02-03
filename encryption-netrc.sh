@@ -24,9 +24,9 @@ gpg -e -r sinsuung@vanillabrain.com  .netrc \
     && cp -a .netrc.gpg ~/.netrc.gpg \
     && wget https://raw.githubusercontent.com/git/git/master/contrib/credential/netrc/git-credential-netrc.perl -O git-credential-netrc \
     && cp -a git-credential-netrc /usr/local/bin/ \
-    && chmod 755 /usr/local/bin/git-credential-netrc
+    && chmod 755 /usr/local/bin/git-credential-netrc 
 
-#rm -f .netrc
+rm -f .netrc
 
 # gpg git credential 등록
 git config --global credential.helper "netrc -v"
