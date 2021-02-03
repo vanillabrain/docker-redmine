@@ -1,10 +1,16 @@
 #!/bin/bash
 
-VAINLLABRAIN_PROJECT_DIR=/home/vanilla/vanillaBrain-project
-VAINLLA_REDMINE_DATA_DIR=/home/vanilla/docker-redmine/redmine_data
-VAINLLATOPIC=vanillatopic.git
+VAINLLABRAIN_PROJECT_DIR=/home/vanilla/vanilla-brain-origin-repo 
 
-cd ${VAINLLABRAIN_PROJECT_DIR}/${VAINLLATOPIC}
-git remote update
+cd ${VAINLLABRAIN_PROJECT_DIR}
 
-cp -a ${VAINLLABRAIN_PROJECT_DIR} ${VAINLLA_REDMINE_DATA_DIR}/${VANILLABRAIN_PROJECT_DIR}
+for entry in `ls -d */`
+    do
+        echo "$entry"
+	cd ${entry}  && {
+	    	git remote update
+		cd ..
+	    }
+    done
+        
+
